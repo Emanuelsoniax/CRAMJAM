@@ -24,6 +24,9 @@ public class PlayerManager : MonoBehaviour {
     public delegate void SwitchedFairy(Fairies _currentFairy);
     public static event SwitchedFairy OnFairySwitched;
 
+    public delegate void ChooseFairy(Fairies _currentFairy);
+    public static event ChooseFairy OnFairyChosen;
+
     private void Start() {
         SwitchFairies();
     }
@@ -60,12 +63,14 @@ public class PlayerManager : MonoBehaviour {
 
     private void Attack() {
         GetComponent<Animator>().SetTrigger("Attack");
-        OnFairySwitched(currentFairy);
+        OnFairyChosen(currentFairy);
     }
 
     private void SwitchFairies() {
         currentFairy = (Fairies)chooseFairy;
-        
+        OnFairySwitched(currentFairy);
+
+
         foreach (GameObject fairy in fairies) {
             fairy.SetActive(true);
         }

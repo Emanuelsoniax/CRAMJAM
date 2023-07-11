@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetFloat("Vertical", rb.velocity.y);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerStay2D(Collider2D collision) {
 
         if (collision.gameObject.layer == 8) {   //If player is on ground,
             isGrounded = true;              // set bool to true	
