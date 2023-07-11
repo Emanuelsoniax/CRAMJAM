@@ -1,0 +1,3 @@
+Fairy Realms is a small platformer game where you play as a sorcerer which uses fairies to look into and teleport to other realms. 
+
+This project was made during Cram Jam! 2023, where the challenge was to create a game within 24 hours
