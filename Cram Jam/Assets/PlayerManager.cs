@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,13 @@ public class PlayerManager : MonoBehaviour {
     private GameObject[] fairies;
 
     [SerializeField]
-    private Fairies currentFairy;
+    public Fairies currentFairy;
     [SerializeField, ReadOnly]
     private int chooseFairy=0;
     private Color color;
+
+    public delegate void SwitchedFairy(Fairies _currentFairy);
+    public static event SwitchedFairy OnFairySwitched;
 
     private void Start() {
         SwitchFairies();
@@ -47,11 +51,21 @@ public class PlayerManager : MonoBehaviour {
             SwitchFairies();
         }
 
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Attack();
+        }
+
+    }
+
+    private void Attack() {
+        GetComponent<Animator>().SetTrigger("Attack");
+        OnFairySwitched(currentFairy);
     }
 
     private void SwitchFairies() {
         currentFairy = (Fairies)chooseFairy;
-
+        
         foreach (GameObject fairy in fairies) {
             fairy.SetActive(true);
         }

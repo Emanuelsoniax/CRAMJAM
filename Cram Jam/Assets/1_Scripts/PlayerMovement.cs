@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour {
         if (verticalInput > 0 && isGrounded) {
             isJumping = true;
         }
+
     }
 
     private void Animate() {

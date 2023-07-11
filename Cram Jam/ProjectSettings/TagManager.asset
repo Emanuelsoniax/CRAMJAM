@@ -41,11 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 2364927985
+    locked: 0
   - name: Background
     uniqueID: 506081939
     locked: 0
   - name: Floor
     uniqueID: 3709772377
+    locked: 0
+  - name: Green
+    uniqueID: 1932399905
+    locked: 0
+  - name: Blue
+    uniqueID: 761641471
+    locked: 0
+  - name: Red
+    uniqueID: 4136340839
     locked: 0
   - name: Player
     uniqueID: 2158666253
