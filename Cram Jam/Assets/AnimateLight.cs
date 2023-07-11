@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class AnimateLight : MonoBehaviour {
 
-    private Light2D light;
+    private Light2D lightToAnimate;
     [SerializeField]
     private float start;
     [SerializeField]
@@ -14,11 +14,11 @@ public class AnimateLight : MonoBehaviour {
 
 
     private void Start() {
-        light = GetComponent<Light2D>();
+        lightToAnimate = GetComponent<Light2D>();
     }
 
     private void Update() {
-        light.intensity = Mathf.Lerp(start, end, Mathf.PingPong(Time.time, 1));
+        lightToAnimate.intensity = Mathf.Lerp(start, end, Mathf.PingPong(Time.time, 1));
     }
 
 }

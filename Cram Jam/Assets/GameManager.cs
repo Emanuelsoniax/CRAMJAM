@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 
     private Sprite[] spritesToSwap = new Sprite[81];
     [SerializeField]
-    private Tilemap[] tilemapsToSwap;
+    public Tilemap[] tilemapsToSwap;
     [SerializeField]
     private GameObject[] tilemaps;
     [SerializeField]
@@ -25,9 +25,19 @@ public class GameManager : MonoBehaviour {
 
     private Fairies currentFairyType;
 
+    [Header("Levels")]
+    [SerializeField]
+    private SpawnPoint[] spawnPoints;
+    [SerializeField]
+    private Portal[] portals;
+    [SerializeField]
+    private int level = 0;
+
+
     private void Start() {
         PlayerManager.OnFairyChosen += UpdateTiles;
         PlayerManager.OnFairySwitched += ShowColor;
+        Portal.OnPortalReached += NextLevel;
     }
 
     private void Update() {
@@ -43,6 +53,16 @@ public class GameManager : MonoBehaviour {
             }
         
         }
+    }
+
+    private void NextLevel() {
+        Debug.Log("Portal Reached!");
+        level++;
+        LoadLevel(level);
+    }
+
+    private void LoadLevel(int level) {
+        spawnPoints[level].SpawnPlayer(player);
     }
 
     private void ShowColor(Fairies _fairyType) {
@@ -106,5 +126,14 @@ public class GameManager : MonoBehaviour {
             tilemap.RefreshAllTiles();
         }
 
+    }
+
+    public void ReloadAllTiles() {
+        foreach (Tilemap tilemap in tilemapsToSwap) {
+            tilemap.RefreshAllTiles();
+        }
+        foreach (GameObject tilemap in tilemaps) {
+            tilemap.GetComponent<Tilemap>().RefreshAllTiles();
+        }
     }
 }
