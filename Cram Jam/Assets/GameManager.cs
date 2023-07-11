@@ -62,12 +62,14 @@ public class GameManager : MonoBehaviour {
         level++;
         if (level > spawnPoints.Length) {
             endMenu.SetActive(true);
+            return;
         }
         LoadLevel(level);
     }
 
-    public void LoadLevel(int level) {
-        spawnPoints[level].SpawnPlayer(player);
+    public void LoadLevel(int _level) {
+        spawnPoints[_level].SpawnPlayer(player);
+        level = _level;
     }
 
     private void ShowColor(Fairies _fairyType) {
