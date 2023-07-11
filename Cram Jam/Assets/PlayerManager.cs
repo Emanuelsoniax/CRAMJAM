@@ -11,17 +11,17 @@ public class PlayerManager : MonoBehaviour {
     private Light2D playerLight;
     [SerializeField]
     private FairyColors colors;
+    [SerializeField]
+    private GameObject[] fairies;
 
     [SerializeField]
     private Fairies currentFairy;
     [SerializeField, ReadOnly]
-    private int chooseFairy;
+    private int chooseFairy=0;
     private Color color;
 
     private void Start() {
-        chooseFairy = (int)currentFairy;
         SwitchFairies();
-        GetComponent<SpriteRenderer>().material.SetColor("_Color", color);
     }
 
     private void Update() {
@@ -47,26 +47,40 @@ public class PlayerManager : MonoBehaviour {
             SwitchFairies();
         }
 
+    }
+
+    private void SwitchFairies() {
+        currentFairy = (Fairies)chooseFairy;
+
+        foreach (GameObject fairy in fairies) {
+            fairy.SetActive(true);
+        }
+
         switch (currentFairy) {
             case Fairies.Green: {
                 color = colors.fairyColors[0];
+                fairies[0].SetActive(false);
+                UpdateColors();
                 return;
             }
             case Fairies.Blue: {
                 color = colors.fairyColors[1];
+                fairies[1].SetActive(false);
+                UpdateColors();
                 return;
             }
             case Fairies.Red: {
                 color = colors.fairyColors[2];
+                fairies[2].SetActive(false);
+                UpdateColors();
                 return;
             }
         }
     }
 
-    private void SwitchFairies() {
-        currentFairy = (Fairies)chooseFairy;
+    private void UpdateColors() {
         playerLight.color = color;
-        GetComponent<SpriteRenderer>().material.SetColor("_Color",color);
+        GetComponent<SpriteRenderer>().material.SetColor("_Color", color);
     }
 
 }
