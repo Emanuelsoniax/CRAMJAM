@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     private Tiles tiles;
     [SerializeField]
     private PlayerManager player;
+    [SerializeField]
+    private GameObject endMenu;
 
     private Sprite[] spritesToSwap = new Sprite[81];
     [SerializeField]
@@ -58,10 +60,13 @@ public class GameManager : MonoBehaviour {
     private void NextLevel() {
         Debug.Log("Portal Reached!");
         level++;
+        if (level > spawnPoints.Length) {
+            endMenu.SetActive(true);
+        }
         LoadLevel(level);
     }
 
-    private void LoadLevel(int level) {
+    public void LoadLevel(int level) {
         spawnPoints[level].SpawnPlayer(player);
     }
 
