@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Idle
+  m_Name: Fairy
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1928212862, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
+      value: {fileID: 1136401574, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
     - time: 0.083333336
-      value: {fileID: 1636769888, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
+      value: {fileID: 1601427467, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
     - time: 0.16666667
-      value: {fileID: 1615739411, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
+      value: {fileID: 1307172753, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
     - time: 0.25
-      value: {fileID: -1841909449, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
+      value: {fileID: -1087276526, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1928212862, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
-    - {fileID: 1636769888, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
-    - {fileID: 1615739411, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
-    - {fileID: -1841909449, guid: 99e020ab2e8374c46b156bb6b41cd770, type: 3}
+    - {fileID: 1136401574, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
+    - {fileID: 1601427467, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
+    - {fileID: 1307172753, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
+    - {fileID: -1087276526, guid: 7a3ceae5b6253264dac9888efb2b8205, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
